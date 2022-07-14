@@ -32,7 +32,6 @@ class Service implements RepoGeneral{
       }
       return $this->conexion->pps->execute();
      } catch (\Throwable $th) {
-      echo $th->getMessage();
     }finally{$this->conexion->Cerrar_Conexion();}
   }
 }
