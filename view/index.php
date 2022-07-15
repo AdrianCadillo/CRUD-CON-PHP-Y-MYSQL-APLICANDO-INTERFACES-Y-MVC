@@ -4,6 +4,7 @@
     require '../controller/PermisoController.php';
     include 'layout/menu.php';
     include 'mensaje/alerta.php';
+   
     session_start();
     ?>
 

@@ -7,7 +7,7 @@ class Service implements RepoGeneral{
  $this->conexion = new Conexion();
  $this->conector = $this->conexion->getConexion();   
  }   
-
+  
  /**
   * Verificar si existe
   */
@@ -19,6 +19,16 @@ class Service implements RepoGeneral{
     return $this->conexion->pps->rowCount();
   } catch (\Throwable $th) {}finally{$this->conexion->Cerrar_Conexion();}
   }
+
+  /**
+   * EXISTE DATOS LÓGICO
+   */
+
+  public function existeDatoLogico($datos=[],$dato)
+  {
+  return in_array($dato,$datos)?true:false;
+  }
+  
 /**Implementa el método de la interface
  * este método realiza un crud completo, haciendo uso de PDO
  */

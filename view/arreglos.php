@@ -99,6 +99,36 @@ $EXISTE_IN_ARRAY = in_array("Dragón ball super",$Persona['Deporte'])?true:false
 
 echo $EXISTE_IN_ARRAY;
 
+ print_r(array_count_values($empleados));
+
+
+ echo "<br>";
+
+ $numeros =[1,2,3,4];
+
+ echo "multimplicacion : ".array_product($numeros).
+ "<br> SUMA : ".array_sum($numeros).
+ "<br> RESTA : ".array_diff($numeros)."<br>";
+
+ /**
+  * USO DE EXPLODE E IMPLODE
+  */
+
+  $explodestr ="adrian-rosales-cadillo";
+
+  $explode = explode("-",$explodestr);
+
+print_r($explode);
+echo "<br> IMPLODE<BR>";
+
+$implodeArray =['adrian','rosales','cadillo'];
+
+$implode = implode("-",$implodeArray);
+
+echo $implode;
+
+ 
+
 
 
 

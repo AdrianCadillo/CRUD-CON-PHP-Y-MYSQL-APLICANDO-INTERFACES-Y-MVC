@@ -5,10 +5,14 @@ require '../Interface/ReporPermiso.php';
 class Permiso implements Repo{
 private $conexion;
 private $service;
+private $misDatos=[];
 public function __construct()
 {
 $this->conexion = new Conexion();   
 $this->service = new Service(); 
+foreach ($this->getShowPermisos() as $value) {
+array_push($this->misDatos,$value['nombre_rol']);
+}
 }  
 
 /***
@@ -38,7 +42,7 @@ $datos=[$Name_rol];
 $this->conexion->Query = QUERY;
 $valor=0;
 try {
-if($this->service->existeDato(EXISTEROL,$Name_rol)==0){
+if(!$this->service->existeDatoLogico($this->misDatos,$Name_rol)){
     $valor=$this->service->CrudOptimize(QUERY,$datos);
 }else{
     $valor =2;
@@ -72,8 +76,8 @@ return $valor;
 
  public function update($Query,$datos=array()){
  $valor =0;
- if($this->service->existeDato(EXISTEROL,$datos[0])==0){
- $valor=$this->service->CrudOptimize(QUERYMODIFY,$datos);// s indica string , i => integer
+ if(!$this->service->existeDatoLogico($this->misDatos,$datos[0])){
+ $valor=$this->service->CrudOptimize(QUERYMODIFY,$datos);//  
  }else{
  $valor=2;
  }

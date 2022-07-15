@@ -4,6 +4,7 @@ $NameFile=basename($_SERVER['PHP_SELF'],".php");
 if($NameFile!='PermisoController'){
 
 $ModeloPermiso = new Permiso();
+
 /**
  * MOSTRAR DATOS
  */
@@ -14,6 +15,7 @@ $mensaje="";
  */
 if($NameFile=='index'){
 $Mis_Permisos=$ModeloPermiso->getShowPermisos();
+
 /**
  * REGISTRAR
  */
